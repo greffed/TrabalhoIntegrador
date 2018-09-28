@@ -7,6 +7,7 @@ package tela;
 
 import static controle.MotoristaControle.*;
 import javax.swing.JOptionPane;
+import static tela.Principal.*;
 
 /**
  *
@@ -16,8 +17,6 @@ public class MotoristaMenu {
 
     public static void motoristaMenu() {
         String textoSubMenu = "";
-
-        int subMenu = 1;
         while (subMenu >= 1 && subMenu <= 4) {
             textoSubMenu = "1 - Cadastrar Motorista \n"
                 + "2 - Alterar Motorista \n"
@@ -29,10 +28,10 @@ public class MotoristaMenu {
                     cadastrarMotorista();
                     break;
                 case 2:
-                    alterarMotorista();
+                    alterarExcluirMotorista();
                     break;
                 case 3:
-                    deletarMotorista();
+                    alterarExcluirMotorista();
                     break;
             }
         }

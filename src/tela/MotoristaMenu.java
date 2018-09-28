@@ -5,6 +5,7 @@
  */
 package tela;
 
+import static controle.MotoristaControle.*;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,9 +26,14 @@ public class MotoristaMenu {
             subMenu = Integer.parseInt(JOptionPane.showInputDialog(textoSubMenu));
             switch (subMenu) {
                 case 1:
-                    motoristaMenu();
+                    cadastrarMotorista();
                     break;
-                
+                case 2:
+                    alterarMotorista();
+                    break;
+                case 3:
+                    deletarMotorista();
+                    break;
             }
         }
     }

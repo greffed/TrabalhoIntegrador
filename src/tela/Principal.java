@@ -18,15 +18,22 @@ public class Principal {
         int menuPrincipal = 1;
         String textoMenu =  null;
         while (menuPrincipal >= 1 && menuPrincipal <= 4) {
-            textoMenu = "1 - Menu Motorista \n"
-                    + "2 - Menu Veiculo \n"
-                    + "3 - Menu  Pacote \n"
-                    + "4 - Menu Relatório\n"
+            textoMenu = "Menus\n"
+                    + "1 - Motorista \n"
+                    + "2 - Veiculo \n"
+                    + "3 - Pacote \n"
+                    + "4 - Relatório\n"
                     + "0 - Sair";
             menuPrincipal = Integer.parseInt(JOptionPane.showInputDialog(textoMenu));
             switch (menuPrincipal) {
                 case 1:
                     motoristaMenu();
+                    break;
+                case 2:
+                    //motoristaMenu();
+                    break;
+                case 3:
+                    //motoristaMenu();
                     break;
                 case 0:
                     System.exit(0);

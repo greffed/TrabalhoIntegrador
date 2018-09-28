@@ -1,6 +1,6 @@
-package um;
+package arquivo;
 
-import beans.Motorista;
+import beans.Pacote;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -17,7 +17,7 @@ import java.util.List;
 
 
 
-public class ArquivoMotorista {
+public class ArquivoPacote {
 
 	public void criarArquivo(String nome) throws IOException {
 
@@ -36,15 +36,15 @@ public class ArquivoMotorista {
 		}
 	}
 
-	public List<Motorista> lerConteudoArquivo() {
+	public List<Pacote> lerConteudoArquivo() {
 		InputStream leitorByte = null;
 		InputStreamReader leitorCaracter = null;
 		BufferedReader leitorPalavras = null;
 
-		List<Motorista> listaMotorista = new ArrayList<Motorista>();
+		List<Pacote> listaPacotes = new ArrayList<Pacote>();
 
 		try {
-			leitorByte = new FileInputStream("conteudo/novaPasta/ListaDeMotoristas.txt");
+			leitorByte = new FileInputStream("conteudo/novaPasta/ListaDePacotes.txt");
 			leitorCaracter = new InputStreamReader(leitorByte);
 			leitorPalavras = new BufferedReader(leitorCaracter);
 			String linha = leitorPalavras.readLine();
@@ -54,13 +54,15 @@ public class ArquivoMotorista {
 
 				if(valores.length == 2) { 
 					System.out.println(linha);
-					Motorista motorista = new Motorista();
-					motorista.setNome(valores[0]);
-					motorista.setNumCnh(valores[1]);
-					motorista.setTipoCnh(valores[2]);
-					//motorista.setDataNasc(valores[3];
+					Pacote pacote = new Pacote();
+					pacote.setNomeRemetente(valores[0]);
+					pacote.setEndRemetente(valores[1]);
+					pacote.setNomeDestinatario(valores[2]);
+					//pacote.setDataDeposito(valores[3]);
+					//pacote.setPeso(valores[4];
+					//pacote.setCodLocalizador[5];
 					linha = leitorPalavras.readLine();
-					listaMotorista.add(motorista);
+					listaPacotes.add(pacote);
 					System.out.println(linha);
 				}
 				linha = leitorPalavras.readLine();
@@ -83,23 +85,24 @@ public class ArquivoMotorista {
 				}
 			} catch(Exception e) {}
 		}
-		return listaMotorista;
+		return listaPacotes;
 	}
 
-	public void escreverConteudoArquivo(List<Motorista> lista) {
+	public void escreverConteudoArquivo(List<Pacote> lista) {
 		OutputStream escritorByte = null;
 		OutputStreamWriter escritorCaracter = null;
 		BufferedWriter escritorPalavras = null;
 
 		try {
-			escritorByte = new FileOutputStream("conteudo/novaPasta/ListaDeMotoristas.txt", false);
+			escritorByte = new FileOutputStream("conteudo/novaPasta/ListaDePacotes.txt", false);
 			escritorCaracter = new OutputStreamWriter(escritorByte);
 			escritorPalavras = new BufferedWriter(escritorCaracter);
 
 			for (Object object : lista) {
-				Motorista motorista = (Motorista) object;
-				escritorPalavras.write(motorista.getNome() + "|" + motorista.getNumCnh() + "|" + motorista.getTipoCnh() //+ "|" + motorista.getDataNasc()
-				);
+				Pacote pacote = (Pacote) object;
+				escritorPalavras.write(pacote.getNomeRemetente() + "|" + pacote.getEndRemetente() + "|" + pacote.getNomeDestinatario()
+									//+ "|" + pacote.getDataDeposito() + "|" + pacote.getPeso() + "|" + pacote.getCodLocalizador()
+			);
 				escritorPalavras.newLine();
 				escritorPalavras.flush();
 			}

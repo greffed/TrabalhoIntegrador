@@ -18,7 +18,7 @@ public class Principal {
         int menuPrincipal = 1;
         String textoMenu =  null;
         while (menuPrincipal >= 1 && menuPrincipal <= 4) {
-            textoMenu = "Menus\n"
+            textoMenu = "Menus \n"
                     + "1 - Motorista \n"
                     + "2 - Veiculo \n"
                     + "3 - Pacote \n"
@@ -38,6 +38,8 @@ public class Principal {
                 case 0:
                     System.exit(0);
                     break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Opção Inválida");
             }
         }
     }

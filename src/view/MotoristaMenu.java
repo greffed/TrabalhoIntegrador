@@ -16,7 +16,7 @@ import static view.Principal.subMenu;
  */
 public class MotoristaMenu {
 
-    public static void motoristaMenu(){
+    public static void motoristaMenu() {
         String textoSubMenu = "";
         while (subMenu >= 1 && subMenu <= 4) {
             textoSubMenu = "1 - Cadastrar Motorista \n"
@@ -35,15 +35,9 @@ public class MotoristaMenu {
                     deletarMotorista();
                     break;
                 case 4:
-                    salvar();
-                    break;
-                case 5:
-                    ler();
-                    break;
-                case 6:
                     JOptionPane.showMessageDialog(null, listarMotoristas());
                     break;
-                    
+
             }
         }
     }

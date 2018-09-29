@@ -40,7 +40,11 @@ public class MotoristaControl {
     public static void deletarMotorista() {
         if (listamotoristas.checkListaMotoristas()) {
             indice = Integer.parseInt(JOptionPane.showInputDialog(listarMotoristas()));
-            listamotoristas.dropMotorista(indice - 1);
+            try {
+                listamotoristas.dropMotorista(indice - 1);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
         } else {
             JOptionPane.showMessageDialog(null, "lista Vazia");
         }
@@ -48,24 +52,32 @@ public class MotoristaControl {
 
     public static void alterarMotorista() {
         if (listamotoristas.checkListaMotoristas()) {
-            deletarMotorista();
-            cadastrarMotorista();
+            try {
+                indice = Integer.parseInt(JOptionPane.showInputDialog(listarMotoristas()));
+                motorista = new Motorista();
+                motorista.setNome(JOptionPane.showInputDialog("Digite o nome do motorista:").toUpperCase());
+                motorista.setNumCnh(JOptionPane.showInputDialog("Digite o número da CNH:").toUpperCase());
+                motorista.setTipoCnh(JOptionPane.showInputDialog("Digite o tipo da CNH:").toUpperCase());
+                listamotoristas.alterMotorista(indice - 1, motorista);
+                motorista = null;
+            } catch (Exception e) {
+                System.out.println("opção inválida");
+            }
         } else {
             JOptionPane.showMessageDialog(null, "lista Vazia");
         }
     }
 
-    //não funcionando
     public static void popularListaMotoristas(ListaMotoristas motoristas) {
         listamotoristas = motoristas;
     }
-    //não funcionando
+
     public static void salvar() {
         escreverConteudoArquivo(listamotoristas);
     }
-    //não funcionando
+
     public static void ler() {
         lerConteudoArquivo();
     }
-    
+
 }

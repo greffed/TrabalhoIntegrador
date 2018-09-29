@@ -1,8 +1,8 @@
-package tela;
+package view;
 
-import beans.Veiculo;
-import beans.Pacote;
-import beans.Motorista;
+import model.Veiculo;
+import model.Pacote;
+import model.Motorista;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -29,7 +29,7 @@ public class Cadastro {
 		while(true){
 			String opcao = JOptionPane.showInputDialog(textoMenu);
 			switch(opcao){
-				case "1":
+				/*case "1":
 					cadastrarMotorista();
 					break;
 				case "2":
@@ -59,14 +59,14 @@ public class Cadastro {
 				case "10":
 					System.exit(0);
 					break;
-				default:
+				*/default:
 					JOptionPane.showMessageDialog(null, "Opção inválida!");
 					break;
 			}
 		}
 	}
 	
-	private static void cadastrarMotorista(){
+	/*private static void cadastrarMotorista(){
 		Motorista motorista = new Motorista();
 		motorista.setNome(JOptionPane.showInputDialog("Digite o nome do motorista:").toUpperCase());
 		//motorista.setDataNasc(Integer.parseInt(JOptionPane.showInputDialog("")));
@@ -273,7 +273,7 @@ public class Cadastro {
 			posicao++;
 		}
 		if(achou) Pacote.pacotes.set(posicao, (Pacote) obj);
-	}
+	}*/
 }
 
 

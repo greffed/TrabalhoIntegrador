@@ -1,6 +1,6 @@
-package beans;
+package model;
 
-import tela.Cadastro;
+import view.Cadastro;
 
 
 public class Veiculo extends Cadastro{

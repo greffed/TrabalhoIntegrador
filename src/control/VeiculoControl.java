@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controle;
+package control;
 
-import beans.Veiculo;
+import model.Veiculo;
 import javax.swing.JOptionPane;
-import static tela.Principal.*;
+import static view.Principal.*;
 
 /**
  *
  * @author Marcos Oliveira
  */
-public class VeiculoControle {
+public class VeiculoControl {
 
     public static void cadastrarVeiculo() {
         Veiculo veiculo = new Veiculo();

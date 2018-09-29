@@ -1,26 +1,20 @@
-package tela;
+package view;
 
-import beans.Motorista;
-import beans.Pacote;
-import beans.Veiculo;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JOptionPane;
-import static tela.MotoristaMenu.*;
-import static tela.VeiculoMenu.*;
+import static view.MotoristaMenu.motoristaMenu;
 
 public class Principal {
 
-    public static List<Motorista> motoristas = new ArrayList<Motorista>();
-    public static List<Veiculo> veiculos = new ArrayList<Veiculo>();
-    public static List<Pacote> pacotes = new ArrayList<Pacote>();
-    public static int menu = 1;
-    public static int subMenu = 1;
+
+    public static int menu,subMenu;
     
     public static void main(String[] args) {
         menu = 1;
+        
         String textoMenu =  null;
         while (menu >= 1 && menu <= 4) {
+            subMenu = 1;
+            System.out.println(menu+"\n"+subMenu);
             textoMenu = "Menus \n"
                     + "1 - Motorista \n"
                     + "2 - Veiculo \n"
@@ -33,7 +27,7 @@ public class Principal {
                     motoristaMenu();
                     break;
                 case 2:
-                    veiculoMenu();
+                    //veiculoMenu();
                     break;
                 case 3:
                     //pacoteMenu();

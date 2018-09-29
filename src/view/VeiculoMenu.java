@@ -3,33 +3,35 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tela;
+package view;
 
+import static control.VeiculoControl.*;
 import javax.swing.JOptionPane;
-import static tela.Principal.*;
+import static view.Principal.subMenu;
 
 /**
  *
  * @author Marcos Oliveira
  */
-public class PacoteMenu {
-    public static void pacoteMenu() {
+public class VeiculoMenu {
+
+    public static void veiculoMenu() {
         String textoSubMenu = "";
-        while (subMenu >= 1 && subMenu <= 4) {
-            textoSubMenu = "1 - Cadastrar Pacote \n"
-                + "2 - Alterar Pacote \n"
-                + "3 - Deletar Pacote \n"
-                + "0 - Voltar";
+        while (subMenu >= 1 && subMenu <= 3) {
+            textoSubMenu = "1 - Cadastrar Veículo \n"
+                    + "2 - Alterar Veículo \n"
+                    + "3 - Deletar Veículo \n"
+                    + "0 - Voltar";
             subMenu = Integer.parseInt(JOptionPane.showInputDialog(textoSubMenu));
             switch (subMenu) {
                 case 1:
-                    cadastrarPacote();
+                    cadastrarVeiculo();
                     break;
                 case 2:
-                    //alterarExcluirMotorista();
+                    alterarExcluirVeiculo();
                     break;
                 case 3:
-                    //alterarExcluirMotorista();
+                    alterarExcluirVeiculo();
                     break;
             }
         }

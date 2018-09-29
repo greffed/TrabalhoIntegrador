@@ -1,6 +1,6 @@
-package arquivo;
+package dao;
 
-import beans.Pacote;
+import model.Pacote;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;

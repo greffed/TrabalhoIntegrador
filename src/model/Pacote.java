@@ -1,7 +1,7 @@
-package beans;
+package model;
 
 import java.util.Date;
-import tela.Cadastro;
+import view.Cadastro;
 
 
 public class Pacote extends Cadastro{

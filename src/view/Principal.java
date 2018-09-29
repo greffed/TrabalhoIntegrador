@@ -11,7 +11,6 @@ public class Principal {
 
     public static void main(String[] args) {
         menu = 1;
-
         String textoMenu = null;
         while (menu >= 1 && menu <= 6) {
             subMenu = 1;

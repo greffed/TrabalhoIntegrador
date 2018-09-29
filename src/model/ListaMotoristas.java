@@ -44,7 +44,10 @@ public class ListaMotoristas implements Serializable {
     public Motorista getMotorista(int i) {
         return this.listamotoristas.get(i);
     }
-
+    public int getSize() {
+        return this.listamotoristas.size();
+    }
+    
     @Override
     public String toString() {
         String txt = "";

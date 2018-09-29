@@ -24,11 +24,15 @@ public class MotoristaControl {
         motorista = new Motorista();
     }
 
-    public static void cadastrarMotorista() {
+    public static void coletaDados() {
         motorista = new Motorista();
         motorista.setNome(JOptionPane.showInputDialog("Digite o nome do motorista:").toUpperCase());
         motorista.setNumCnh(JOptionPane.showInputDialog("Digite o número da CNH:").toUpperCase());
         motorista.setTipoCnh(JOptionPane.showInputDialog("Digite o tipo da CNH:").toUpperCase());
+    }
+
+    public static void cadastrarMotorista() {
+        coletaDados();
         listamotoristas.addMotorista(motorista);
         motorista = null;
     }
@@ -40,10 +44,10 @@ public class MotoristaControl {
     public static void deletarMotorista() {
         if (listamotoristas.checkListaMotoristas()) {
             indice = Integer.parseInt(JOptionPane.showInputDialog(listarMotoristas()));
-            try {
+            if (indice > 0 && indice < listamotoristas.getSize()) {
                 listamotoristas.dropMotorista(indice - 1);
-            } catch (Exception e) {
-                System.out.println(e);
+            } else {
+                JOptionPane.showMessageDialog(null, "Dado Inválido");
             }
         } else {
             JOptionPane.showMessageDialog(null, "lista Vazia");
@@ -52,16 +56,13 @@ public class MotoristaControl {
 
     public static void alterarMotorista() {
         if (listamotoristas.checkListaMotoristas()) {
-            try {
-                indice = Integer.parseInt(JOptionPane.showInputDialog(listarMotoristas()));
-                motorista = new Motorista();
-                motorista.setNome(JOptionPane.showInputDialog("Digite o nome do motorista:").toUpperCase());
-                motorista.setNumCnh(JOptionPane.showInputDialog("Digite o número da CNH:").toUpperCase());
-                motorista.setTipoCnh(JOptionPane.showInputDialog("Digite o tipo da CNH:").toUpperCase());
+            indice = Integer.parseInt(JOptionPane.showInputDialog(listarMotoristas()));
+            if (indice > 0 && indice < listamotoristas.getSize()) {
+                coletaDados();
                 listamotoristas.alterMotorista(indice - 1, motorista);
                 motorista = null;
-            } catch (Exception e) {
-                System.out.println("opção inválida");
+            } else {
+                JOptionPane.showMessageDialog(null, "Dado Inválido");
             }
         } else {
             JOptionPane.showMessageDialog(null, "lista Vazia");

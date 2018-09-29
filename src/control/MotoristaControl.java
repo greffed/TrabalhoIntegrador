@@ -50,7 +50,7 @@ public class MotoristaControl {
                 JOptionPane.showMessageDialog(null, "Dado Inválido");
             }
         } else {
-            JOptionPane.showMessageDialog(null, "lista Vazia");
+            JOptionPane.showMessageDialog(null, "Lista Vazia");
         }
     }
 
@@ -65,14 +65,14 @@ public class MotoristaControl {
                 JOptionPane.showMessageDialog(null, "Dado Inválido");
             }
         } else {
-            JOptionPane.showMessageDialog(null, "lista Vazia");
+            JOptionPane.showMessageDialog(null, "Lista Vazia");
         }
     }
 
     public static void popularListaMotoristas(ListaMotoristas motoristas) {
         listamotoristas = motoristas;
     }
-
+    
     public static void salvar() {
         escreverConteudoArquivo(listamotoristas);
     }

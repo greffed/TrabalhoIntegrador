@@ -50,6 +50,7 @@ public class ListaVeiculos implements Serializable {
         int i = 1;
         for (Veiculo v:listaveiculos){
             txt += i + " - " + v.getPlaca() + "/"+v.getMarca()+" "+v.getModelo()+"\n";
+            i++;
         }
         return txt;
     }

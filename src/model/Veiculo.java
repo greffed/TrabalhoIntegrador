@@ -1,9 +1,10 @@
 package model;
 
+import java.io.Serializable;
 import view.Cadastro;
 
 
-public class Veiculo extends Cadastro{
+public class Veiculo implements Serializable{
 	
 	private String marca;
 	private String modelo;

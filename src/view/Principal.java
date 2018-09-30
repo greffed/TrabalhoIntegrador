@@ -1,9 +1,9 @@
 package view;
 
-import static control.MotoristaControl.ler;
-import static control.MotoristaControl.salvar;
+import static dao.Arquivos.*;
 import javax.swing.JOptionPane;
 import static view.MotoristaMenu.motoristaMenu;
+import static view.VeiculoMenu.veiculoMenu;
 
 public class Principal {
 
@@ -19,7 +19,7 @@ public class Principal {
                     + "2 - Veiculo \n"
                     + "3 - Pacote \n"
                     + "4 - Relatório\n"
-                    + "5 - Carregar Dados do Arquivo\n"
+                    + "5 - Carregar Dados do arquivo\n"
                     + "6 - Salvar Dados no arquivo\n"
                     + "0 - Sair";
             menu = Integer.parseInt(JOptionPane.showInputDialog(textoMenu));
@@ -28,7 +28,7 @@ public class Principal {
                     motoristaMenu();
                     break;
                 case 2:
-                    //veiculoMenu();
+                    veiculoMenu();
                     break;
                 case 3:
                     //pacoteMenu();
@@ -37,10 +37,11 @@ public class Principal {
                     //relatorioMenu();
                     break;
                 case 5:
-                    ler();
+                    carregarDadosTXT();
+                    //lerVeiculo();
                     break;
                 case 6:
-                    salvar();
+                    salvarDadosTXT();
                     break;
                 case 0:
                     System.exit(0);

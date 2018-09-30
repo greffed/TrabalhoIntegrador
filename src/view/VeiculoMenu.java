@@ -28,10 +28,10 @@ public class VeiculoMenu {
                     cadastrarVeiculo();
                     break;
                 case 2:
-                    alterarExcluirVeiculo();
+                    alterarVeiculo();
                     break;
                 case 3:
-                    alterarExcluirVeiculo();
+                    deletarVeiculo();
                     break;
             }
         }

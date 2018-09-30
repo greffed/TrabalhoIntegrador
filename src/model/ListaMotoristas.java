@@ -23,11 +23,7 @@ public class ListaMotoristas implements Serializable {
 
     public ListaMotoristas(List<Motorista> listamotoristas) {
         this.listamotoristas = listamotoristas;
-    }
-
-    public boolean checkListaMotoristas() {
-        return listamotoristas.size() > 0;
-    }
+    }  
 
     public void addMotorista(Motorista m) {
         this.listamotoristas.add(m);
@@ -36,7 +32,9 @@ public class ListaMotoristas implements Serializable {
     public void dropMotorista(int i) {
         this.listamotoristas.remove(i);
     }
-
+    public void dropMotorista(Motorista m) {
+        this.listamotoristas.remove(m);
+    }
     public void alterMotorista(int i, Motorista m) {
         this.listamotoristas.set(i, m);
     }

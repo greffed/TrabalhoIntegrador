@@ -15,7 +15,7 @@ public class ArquivoMotorista {
 
     static String arquivo = "conteudo/motoristas.bin";
 
-    public static void lerConteudoArquivo() {
+    public static void carregarMotorista() {
         InputStream leitorByte = null;
         ObjectInputStream leitorObjeto = null;
 
@@ -24,11 +24,11 @@ public class ArquivoMotorista {
             leitorObjeto = new ObjectInputStream(leitorByte);
 
             ListaMotoristas motoristas = (ListaMotoristas) leitorObjeto.readObject();
-            if (motoristas.checkListaMotoristas() == false) {
-                System.out.println("Arquivo Vazio!");
+            if (motoristas.getSize() <= 0) {
+                System.out.println("Arquivo de motoristas Vazio!");
             } else {
                 popularListaMotoristas(motoristas);
-                System.out.println("Arquivo Carregado!");
+                System.out.println("Arquivo de motoristas Carregado!");
             }
 
         } catch (FileNotFoundException e) {
@@ -51,7 +51,7 @@ public class ArquivoMotorista {
         }
     }
 
-    public static void escreverConteudoArquivo(ListaMotoristas listamotoristas) {
+    public static void salvarMotorista(ListaMotoristas listamotoristas) {
         OutputStream escritorByte = null;
         ObjectOutputStream escritorObjeto = null;
         try {
@@ -61,7 +61,7 @@ public class ArquivoMotorista {
             escritorObjeto.writeObject(listamotoristas);
             escritorObjeto.flush();
             System.out.println(listamotoristas);
-            System.out.println("Arquivo Atualizado!");
+            System.out.println("Arquivo de motoristas Atualizado!");
         } catch (FileNotFoundException e) {
             System.err.println(e);
         } catch (IOException e) {

@@ -24,6 +24,9 @@ public class MotoristaControl {
         motorista = new Motorista();
     }
 
+    public static ListaMotoristas getListaMotorista() {
+        return listamotoristas;
+    }
     public static void coletaDados() {
         motorista = new Motorista();
         motorista.setNome(JOptionPane.showInputDialog("Digite o nome do motorista:").toUpperCase());
@@ -42,9 +45,10 @@ public class MotoristaControl {
     }
 
     public static void deletarMotorista() {
-        if (listamotoristas.checkListaMotoristas()) {
+        if (listamotoristas.getSize()>0) {
             indice = Integer.parseInt(JOptionPane.showInputDialog(listarMotoristas()));
-            if (indice > 0 && indice < listamotoristas.getSize()) {
+            System.out.println(listamotoristas.getSize());
+            if (indice > 0 && indice <= listamotoristas.getSize()) {
                 listamotoristas.dropMotorista(indice - 1);
             } else {
                 JOptionPane.showMessageDialog(null, "Dado Inválido");
@@ -55,9 +59,9 @@ public class MotoristaControl {
     }
 
     public static void alterarMotorista() {
-        if (listamotoristas.checkListaMotoristas()) {
+        if (listamotoristas.getSize()>0) {
             indice = Integer.parseInt(JOptionPane.showInputDialog(listarMotoristas()));
-            if (indice > 0 && indice < listamotoristas.getSize()) {
+            if (indice > 0 && indice <= listamotoristas.getSize()) {
                 coletaDados();
                 listamotoristas.alterMotorista(indice - 1, motorista);
                 motorista = null;
@@ -69,16 +73,11 @@ public class MotoristaControl {
         }
     }
 
+
     public static void popularListaMotoristas(ListaMotoristas motoristas) {
         listamotoristas = motoristas;
     }
     
-    public static void salvar() {
-        escreverConteudoArquivo(listamotoristas);
-    }
 
-    public static void ler() {
-        lerConteudoArquivo();
-    }
 
 }

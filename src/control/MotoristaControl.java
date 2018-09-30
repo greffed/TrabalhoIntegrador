@@ -24,11 +24,15 @@ public class MotoristaControl {
         motorista = new Motorista();
     }
 
-    public static void cadastrarMotorista() {
+    public static void coletaDados() {
         motorista = new Motorista();
         motorista.setNome(JOptionPane.showInputDialog("Digite o nome do motorista:").toUpperCase());
         motorista.setNumCnh(JOptionPane.showInputDialog("Digite o número da CNH:").toUpperCase());
         motorista.setTipoCnh(JOptionPane.showInputDialog("Digite o tipo da CNH:").toUpperCase());
+    }
+
+    public static void cadastrarMotorista() {
+        coletaDados();
         listamotoristas.addMotorista(motorista);
         motorista = null;
     }
@@ -40,32 +44,41 @@ public class MotoristaControl {
     public static void deletarMotorista() {
         if (listamotoristas.checkListaMotoristas()) {
             indice = Integer.parseInt(JOptionPane.showInputDialog(listarMotoristas()));
-            listamotoristas.dropMotorista(indice - 1);
+            if (indice > 0 && indice < listamotoristas.getSize()) {
+                listamotoristas.dropMotorista(indice - 1);
+            } else {
+                JOptionPane.showMessageDialog(null, "Dado Inválido");
+            }
         } else {
-            JOptionPane.showMessageDialog(null, "lista Vazia");
+            JOptionPane.showMessageDialog(null, "Lista Vazia");
         }
     }
 
     public static void alterarMotorista() {
         if (listamotoristas.checkListaMotoristas()) {
-            deletarMotorista();
-            cadastrarMotorista();
+            indice = Integer.parseInt(JOptionPane.showInputDialog(listarMotoristas()));
+            if (indice > 0 && indice < listamotoristas.getSize()) {
+                coletaDados();
+                listamotoristas.alterMotorista(indice - 1, motorista);
+                motorista = null;
+            } else {
+                JOptionPane.showMessageDialog(null, "Dado Inválido");
+            }
         } else {
-            JOptionPane.showMessageDialog(null, "lista Vazia");
+            JOptionPane.showMessageDialog(null, "Lista Vazia");
         }
     }
 
-    //não funcionando
     public static void popularListaMotoristas(ListaMotoristas motoristas) {
         listamotoristas = motoristas;
     }
-    //não funcionando
+    
     public static void salvar() {
         escreverConteudoArquivo(listamotoristas);
     }
-    //não funcionando
+
     public static void ler() {
         lerConteudoArquivo();
     }
-    
+
 }

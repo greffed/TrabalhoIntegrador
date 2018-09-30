@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author Marcos Oliveira
  */
-public class ListaMotoristas implements Serializable{
+public class ListaMotoristas implements Serializable {
 
     List<Motorista> listamotoristas;
 
@@ -25,9 +25,10 @@ public class ListaMotoristas implements Serializable{
         this.listamotoristas = listamotoristas;
     }
 
-    public boolean checkListaMotoristas(){
-        return listamotoristas.size()>0;
+    public boolean checkListaMotoristas() {
+        return listamotoristas.size() > 0;
     }
+
     public void addMotorista(Motorista m) {
         this.listamotoristas.add(m);
     }
@@ -43,13 +44,16 @@ public class ListaMotoristas implements Serializable{
     public Motorista getMotorista(int i) {
         return this.listamotoristas.get(i);
     }
-
+    public int getSize() {
+        return this.listamotoristas.size();
+    }
+    
     @Override
     public String toString() {
         String txt = "";
         int i = 1;
-        for (Motorista m: listamotoristas){
-            txt += i + " - " + m.getNome()+"\n";
+        for (Motorista m : listamotoristas) {
+            txt += i + " - " + m.getNome() + "\n";
             i++;
         }
         return txt;

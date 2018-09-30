@@ -9,36 +9,35 @@ import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
-import java.util.List;
 import model.ListaMotoristas;
-import model.Motorista;
 
 public class ArquivoMotorista {
 
-    static String arquivo = "conteudo/ListaMotoristas.bin";
+    static String arquivo = "conteudo/motoristas.bin";
 
     public static void lerConteudoArquivo() {
         InputStream leitorByte = null;
         ObjectInputStream leitorObjeto = null;
-        
+
         try {
             leitorByte = new FileInputStream(arquivo);
             leitorObjeto = new ObjectInputStream(leitorByte);
-            
-           ListaMotoristas motoristas = (ListaMotoristas) leitorObjeto.readObject();
-            System.out.println(motoristas.checkListaMotoristas());
-            /*ListaMotoristas motoristas = null;
-            motoristas = (ListaMotoristas) leitorObjeto.readObject();           
-            popularListaMotoristas(motoristas);*/
+
+            ListaMotoristas motoristas = (ListaMotoristas) leitorObjeto.readObject();
+            if (motoristas.checkListaMotoristas() == false) {
+                System.out.println("Arquivo Vazio!");
+            } else {
+                popularListaMotoristas(motoristas);
+                System.out.println("Arquivo Carregado!");
+            }
 
         } catch (FileNotFoundException e) {
             System.err.println(e);
         } catch (IOException e) {
             System.err.println(e);
-        } catch(ClassNotFoundException e){
+        } catch (ClassNotFoundException e) {
             System.err.println(e);
-        }
-                finally {
+        } finally {
             try {
                 if (leitorObjeto != null) {
                     leitorObjeto.close();
@@ -46,7 +45,7 @@ public class ArquivoMotorista {
                 if (leitorByte != null) {
                     leitorByte.close();
                 }
-                
+
             } catch (Exception e) {
             }
         }
@@ -61,6 +60,7 @@ public class ArquivoMotorista {
             // salva o objeto
             escritorObjeto.writeObject(listamotoristas);
             escritorObjeto.flush();
+            System.out.println(listamotoristas);
             System.out.println("Arquivo Atualizado!");
         } catch (FileNotFoundException e) {
             System.err.println(e);

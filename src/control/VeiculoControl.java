@@ -27,18 +27,20 @@ public class VeiculoControl {
     }
 
     public static void coletaDados() {
-        int tipoveic = Integer.parseInt(JOptionPane.showInputDialog("Digite o tipo de veículo \n 1 - Carreta \n 2 - Caminhão Baú \n 3 - Van"));
-        switch (tipoveic) {
-            case 1:
-                veiculo = new Carreta();
-                break;
-            case 2:
-                veiculo = new Bau();
-                break;
-            case 3:
-                veiculo = new Van();
-                break;
-
+        int tipoveic = 0;
+        while (tipoveic < 1 || tipoveic > 3) {
+            tipoveic = Integer.parseInt(JOptionPane.showInputDialog("Digite o tipo de veículo \n 1 - Carreta \n 2 - Caminhão Baú \n 3 - Van"));
+            switch (tipoveic) {
+                case 1:
+                    veiculo = new Carreta();
+                    break;
+                case 2:
+                    veiculo = new Bau();
+                    break;
+                case 3:
+                    veiculo = new Van();
+                    break;
+            }
         }
         veiculo.setPlaca(JOptionPane.showInputDialog("Digite a placa do veículo:").toUpperCase());
         veiculo.setMarca(JOptionPane.showInputDialog("Digite a marca do veículo:").toUpperCase());

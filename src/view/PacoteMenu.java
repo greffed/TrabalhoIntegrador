@@ -13,25 +13,32 @@ import static view.Principal.*;
  * @author Marcos Oliveira
  */
 public class PacoteMenu {
+
     public static void pacoteMenu() {
         String textoSubMenu = "";
-        while (subMenu >= 1 && subMenu <= 4) {
+        do {
             textoSubMenu = "1 - Cadastrar Pacote \n"
-                + "2 - Alterar Pacote \n"
-                + "3 - Deletar Pacote \n"
-                + "0 - Voltar";
-            subMenu = Integer.parseInt(JOptionPane.showInputDialog(textoSubMenu));
+                    + "2 - Alterar Pacote \n"
+                    + "3 - Deletar Pacote \n"
+                    + "0 - Voltar";
+            subMenu = (JOptionPane.showInputDialog(textoSubMenu));
             switch (subMenu) {
-                case 1:
+                case "1":
                     //cadastrarPacote();
                     break;
-                case 2:
+                case "2":
                     //alterarExcluirMotorista();
                     break;
-                case 3:
+                case "3":
                     //alterarExcluirMotorista();
                     break;
+                case "0":
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Opção Inválida");
+                    break;
+
             }
-        }
+        } while (!subMenu.equals("0"));
     }
 }

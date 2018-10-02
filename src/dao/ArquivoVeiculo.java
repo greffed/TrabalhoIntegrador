@@ -54,7 +54,7 @@ public class ArquivoVeiculo {
             // salva o objeto
             escritorObjeto.writeObject(listaveiculos);
             escritorObjeto.flush();
-            System.out.println(listaveiculos);
+            //System.out.println(listaveiculos);
             System.out.println("Arquivo de veiculos Atualizado!");
         } catch (FileNotFoundException e) {
             System.err.println(e);

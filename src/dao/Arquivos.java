@@ -9,8 +9,6 @@ import static dao.ArquivoMotorista.*;
 import static dao.ArquivoVeiculo.*;
 import static control.MotoristaControl.*;
 import static control.VeiculoControl.*;
-import model.ListaMotoristas;
-import model.Motorista;
 
 
 /**

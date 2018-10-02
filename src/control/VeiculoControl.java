@@ -5,10 +5,8 @@
  */
 package control;
 
-import model.Veiculo;
 import javax.swing.JOptionPane;
-import model.ListaVeiculos;
-import static view.Principal.*;
+import model.*;
 
 /**
  *
@@ -17,17 +15,31 @@ import static view.Principal.*;
 public class VeiculoControl {
 
     private static Veiculo veiculo = null;
-    private static ListaVeiculos listaveiculos = new ListaVeiculos();
+    private static ListaVeiculos listaveiculos = null;
     private static int indice;
 
     public VeiculoControl() {
-        this.veiculo = new Veiculo();
+        listaveiculos = new ListaVeiculos();;
     }
+
     public static ListaVeiculos getListaVeiculo() {
         return listaveiculos;
     }
+
     public static void coletaDados() {
-        veiculo = new Veiculo();
+        int tipoveic = Integer.parseInt(JOptionPane.showInputDialog("Digite o tipo de veículo \n 1 - Carreta \n 2 - Caminhão Baú \n 3 - Van"));
+        switch (tipoveic) {
+            case 1:
+                veiculo = new Carreta();
+                break;
+            case 2:
+                veiculo = new Bau();
+                break;
+            case 3:
+                veiculo = new Van();
+                break;
+
+        }
         veiculo.setPlaca(JOptionPane.showInputDialog("Digite a placa do veículo:").toUpperCase());
         veiculo.setMarca(JOptionPane.showInputDialog("Digite a marca do veículo:").toUpperCase());
         veiculo.setModelo(JOptionPane.showInputDialog("Digite o modelo do veículo:").toUpperCase());
@@ -46,14 +58,19 @@ public class VeiculoControl {
 
     public static void alterarVeiculo() {
         if (listaveiculos.getSize() > 0) {
-            indice = Integer.parseInt(JOptionPane.showInputDialog(listarVeiculos()));
-            if (indice > 0 && indice <= listaveiculos.getSize()) {
-                coletaDados();
-                listaveiculos.alterVeiculo(indice - 1, veiculo);
-                veiculo = null;
+            try {
+                indice = Integer.parseInt(JOptionPane.showInputDialog(listarVeiculos()));
+                if (indice > 0 && indice <= listaveiculos.getSize()) {
+                    coletaDados();
+                    listaveiculos.alterVeiculo(indice - 1, veiculo);
+                    veiculo = null;
 
-            } else {
+                } else {
+                    JOptionPane.showMessageDialog(null, "Opção Inválida");
+                }
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Opção Inválida");
+                System.out.println(e);
             }
         } else {
             JOptionPane.showMessageDialog(null, "Lista Vazia");
@@ -62,11 +79,16 @@ public class VeiculoControl {
 
     public static void deletarVeiculo() {
         if (listaveiculos.getSize() > 0) {
-            indice = Integer.parseInt(JOptionPane.showInputDialog(listarVeiculos()));
-            if (indice > 0 && indice <= listaveiculos.getSize()) {
-                listaveiculos.dropVeiculo(indice-1);
-            } else {
+            try {
+                indice = Integer.parseInt(JOptionPane.showInputDialog(listarVeiculos()));
+                if (indice > 0 && indice <= listaveiculos.getSize()) {
+                    listaveiculos.dropVeiculo(indice - 1);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Opção Inválida");
+                }
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Opção Inválida");
+                System.out.println(e);
             }
         } else {
             JOptionPane.showMessageDialog(null, "Lista Vazia");
@@ -75,16 +97,15 @@ public class VeiculoControl {
 
     public static Veiculo buscarPorPlaca(String placaVeiculo) {
 //        for (Veiculo v : Veiculo.veiculo) {
-      //      if (placaVeiculo.equalsIgnoreCase(v.getPlaca())) {
-    //            return v;
+        //      if (placaVeiculo.equalsIgnoreCase(v.getPlaca())) {
+        //            return v;
         //    }
-  //      }
+        //      }
         return null;
     }
 
-    public static void popularListaVeiculos(ListaVeiculos listanova){
-        listaveiculos =  listanova;
+    public static void popularListaVeiculos(ListaVeiculos listanova) {
+        listaveiculos = listanova;
     }
 
-    
 }

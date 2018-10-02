@@ -17,23 +17,30 @@ public class VeiculoMenu {
 
     public static void veiculoMenu() {
         String textoSubMenu = "";
-        while (subMenu >= 1 && subMenu <= 3) {
+        do {
             textoSubMenu = "1 - Cadastrar Veículo \n"
                     + "2 - Alterar Veículo \n"
                     + "3 - Deletar Veículo \n"
                     + "0 - Voltar";
-            subMenu = Integer.parseInt(JOptionPane.showInputDialog(textoSubMenu));
+            subMenu = (JOptionPane.showInputDialog(textoSubMenu));
             switch (subMenu) {
-                case 1:
+                case "1":
                     cadastrarVeiculo();
                     break;
-                case 2:
+                case "2":
                     alterarVeiculo();
                     break;
-                case 3:
+                case "3":
                     deletarVeiculo();
                     break;
+                case "0":
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Opção Inválida");
+                    break;
+
             }
-        }
+        } while (!subMenu.equals("0"));
     }
+
 }

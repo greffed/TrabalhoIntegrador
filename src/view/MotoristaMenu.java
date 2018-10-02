@@ -6,7 +6,6 @@
 package view;
 
 import static control.MotoristaControl.*;
-import java.io.IOException;
 import javax.swing.JOptionPane;
 import static view.Principal.subMenu;
 
@@ -18,27 +17,32 @@ public class MotoristaMenu {
 
     public static void motoristaMenu() {
         String textoSubMenu = "";
-        while (subMenu >= 1 && subMenu <= 4) {
+        do {
             textoSubMenu = "1 - Cadastrar Motorista \n"
                     + "2 - Alterar Motorista \n"
                     + "3 - Deletar Motorista \n"
                     + "0 - Voltar";
-            subMenu = Integer.parseInt(JOptionPane.showInputDialog(textoSubMenu));
+            subMenu = (JOptionPane.showInputDialog(textoSubMenu));
             switch (subMenu) {
-                case 1:
+                case "1":
                     cadastrarMotorista();
                     break;
-                case 2:
+                case "2":
                     alterarMotorista();
                     break;
-                case 3:
+                case "3":
                     deletarMotorista();
                     break;
-                case 4:
+                case "4":
                     JOptionPane.showMessageDialog(null, listarMotoristas());
+                    break;
+                case "0":
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Opção Inválida");
                     break;
 
             }
-        }
+        } while (!subMenu.equals("0"));
     }
 }

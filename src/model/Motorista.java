@@ -1,7 +1,7 @@
 package model;
 import java.io.Serializable;
 import java.util.Date;
-public class Motorista implements Serializable{
+public class Motorista implements Serializable {
     private String nome;
     private Date dataNasc;
     private String numCnh;

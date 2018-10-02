@@ -49,7 +49,7 @@ public class ListaVeiculos implements Serializable {
         String txt = "";
         int i = 1;
         for (Veiculo v:listaveiculos){
-            txt += i + " - " + v.getPlaca() + "/"+v.getMarca()+" "+v.getModelo()+"\n";
+            txt += i + " - Placa: " + v.getPlaca() + " - "+v.getMarca()+" "+v.getModelo()+"\n Tipo: "+v.getTipo()+" - Capacidade: "+v.getCapacidade()+"\n\n";
             i++;
         }
         return txt;

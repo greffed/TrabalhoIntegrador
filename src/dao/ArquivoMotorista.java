@@ -60,7 +60,7 @@ public class ArquivoMotorista {
             // salva o objeto
             escritorObjeto.writeObject(listamotoristas);
             escritorObjeto.flush();
-            System.out.println(listamotoristas);
+            //System.out.println(listamotoristas);
             System.out.println("Arquivo de motoristas Atualizado!");
         } catch (FileNotFoundException e) {
             System.err.println(e);

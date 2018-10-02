@@ -5,7 +5,6 @@
  */
 package control;
 
-import static dao.ArquivoMotorista.*;
 import model.Motorista;
 import javax.swing.JOptionPane;
 import model.ListaMotoristas;
@@ -17,16 +16,17 @@ import model.ListaMotoristas;
 public class MotoristaControl {
 
     private static Motorista motorista = null;
-    private static ListaMotoristas listamotoristas = new ListaMotoristas();
+    private static ListaMotoristas listamotoristas = null;
     private static int indice;
 
     public MotoristaControl() {
-        motorista = new Motorista();
+        listamotoristas = new ListaMotoristas();
     }
 
     public static ListaMotoristas getListaMotorista() {
         return listamotoristas;
     }
+
     public static void coletaDados() {
         motorista = new Motorista();
         motorista.setNome(JOptionPane.showInputDialog("Digite o nome do motorista:").toUpperCase());
@@ -45,12 +45,18 @@ public class MotoristaControl {
     }
 
     public static void deletarMotorista() {
-        if (listamotoristas.getSize()>0) {
-            indice = Integer.parseInt(JOptionPane.showInputDialog(listarMotoristas()));
-            System.out.println(listamotoristas.getSize());
-            if (indice > 0 && indice <= listamotoristas.getSize()) {
-                listamotoristas.dropMotorista(indice - 1);
-            } else {
+        if (listamotoristas.getSize() > 0) {
+            try {
+                indice = Integer.parseInt(JOptionPane.showInputDialog(listarMotoristas()));
+
+                System.out.println(listamotoristas.getSize());
+                if (indice > 0 && indice <= listamotoristas.getSize()) {
+                    listamotoristas.dropMotorista(indice - 1);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Dado Inválido");
+                }
+            } catch (Exception e) {
+                System.out.println(e);
                 JOptionPane.showMessageDialog(null, "Dado Inválido");
             }
         } else {
@@ -59,25 +65,28 @@ public class MotoristaControl {
     }
 
     public static void alterarMotorista() {
-        if (listamotoristas.getSize()>0) {
-            indice = Integer.parseInt(JOptionPane.showInputDialog(listarMotoristas()));
-            if (indice > 0 && indice <= listamotoristas.getSize()) {
-                coletaDados();
-                listamotoristas.alterMotorista(indice - 1, motorista);
-                motorista = null;
-            } else {
+        if (listamotoristas.getSize() > 0) {
+            try {
+                indice = Integer.parseInt(JOptionPane.showInputDialog(listarMotoristas()));
+
+                if (indice > 0 && indice <= listamotoristas.getSize()) {
+                    coletaDados();
+                    listamotoristas.alterMotorista(indice - 1, motorista);
+                    motorista = null;
+                } else {
+                    JOptionPane.showMessageDialog(null, "Dado Inválido");
+                }
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Dado Inválido");
+                System.out.println(e);
             }
         } else {
             JOptionPane.showMessageDialog(null, "Lista Vazia");
         }
     }
 
-
     public static void popularListaMotoristas(ListaMotoristas motoristas) {
         listamotoristas = motoristas;
     }
-    
-
 
 }

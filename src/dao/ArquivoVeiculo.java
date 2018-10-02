@@ -1,6 +1,7 @@
 package dao;
 
 import static control.VeiculoControl.*;
+import static dao.Arquivos.verificaArquivo;
 import java.io.*;
 import model.ListaVeiculos;
 import model.Veiculo;
@@ -10,6 +11,7 @@ public class ArquivoVeiculo {
     static String arquivo = "conteudo/veiculos.bin";
 
     public static void carregarVeiculo() {
+        verificaArquivo(arquivo);
         InputStream leitorByte = null;
         ObjectInputStream leitorObjeto = null;
 
@@ -46,6 +48,7 @@ public class ArquivoVeiculo {
     }
 
     public static void salvarVeiculo(ListaVeiculos listaveiculos) {
+        verificaArquivo(arquivo);
         OutputStream escritorByte = null;
         ObjectOutputStream escritorObjeto = null;
         try {

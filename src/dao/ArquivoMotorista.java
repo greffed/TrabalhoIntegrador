@@ -1,6 +1,7 @@
 package dao;
 
 import static control.MotoristaControl.popularListaMotoristas;
+import static dao.Arquivos.verificaArquivo;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -13,9 +14,10 @@ import model.ListaMotoristas;
 
 public class ArquivoMotorista {
 
-    static String arquivo = "conteudo/motoristas.bin";
-
+    private static String arquivo = "conteudo/motoristas4.bin";
+    
     public static void carregarMotorista() {
+        verificaArquivo(arquivo);
         InputStream leitorByte = null;
         ObjectInputStream leitorObjeto = null;
 
@@ -52,6 +54,7 @@ public class ArquivoMotorista {
     }
 
     public static void salvarMotorista(ListaMotoristas listamotoristas) {
+        verificaArquivo(arquivo);
         OutputStream escritorByte = null;
         ObjectOutputStream escritorObjeto = null;
         try {

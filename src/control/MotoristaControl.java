@@ -26,6 +26,10 @@ public class MotoristaControl {
     public static ListaMotoristas getListaMotorista() {
         return listamotoristas;
     }
+    
+    public static void setListaMotoristas(ListaMotoristas motoristas) {
+        listamotoristas = motoristas;
+    }
 
     public static void coletaDados() {
         motorista = new Motorista();
@@ -85,8 +89,5 @@ public class MotoristaControl {
         }
     }
 
-    public static void popularListaMotoristas(ListaMotoristas motoristas) {
-        listamotoristas = motoristas;
-    }
 
 }

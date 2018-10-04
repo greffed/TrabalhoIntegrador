@@ -12,6 +12,25 @@
             <file>file:/C:/Users/Marcos%20Oliveira/OneDrive/Netbeans2018/Trabalho_Integrador/src/tela/PacoteMenu.java</file>
             <file>file:/C:/Users/Marcos%20Oliveira/OneDrive/Netbeans2018/Trabalho_Integrador/src/controle/PacoteControle.java</file>
         </group>
-        <group name="ProjetosManoel"/>
+        <group name="ProjetosManoel">
+            <file>file:/C:/Users/Marcos%20Oliveira/OneDrive/Netbeans2018/Trabalho_Integrador/src/view/MotoristaMenu.java</file>
+            <file>file:/C:/Users/Marcos%20Oliveira/OneDrive/Netbeans2018/Trabalho_Integrador/src/model/Van.java</file>
+            <file>file:/C:/Users/Marcos%20Oliveira/OneDrive/Netbeans2018/Trabalho_Integrador/src/model/ListaVeiculos.java</file>
+            <file>file:/C:/Users/Marcos%20Oliveira/OneDrive/Netbeans2018/Trabalho_Integrador/src/dao/Arquivos.java</file>
+            <file>file:/C:/Users/Marcos%20Oliveira/OneDrive/Netbeans2018/Trabalho_Integrador/src/control/PacoteControl.java</file>
+            <file>file:/C:/Users/Marcos%20Oliveira/OneDrive/Netbeans2018/Trabalho_Integrador/src/model/Pacote.java</file>
+            <file>file:/C:/Users/Marcos%20Oliveira/OneDrive/Netbeans2018/Trabalho_Integrador/src/dao/ArquivoVeiculo.java</file>
+            <file>file:/C:/Users/Marcos%20Oliveira/OneDrive/Netbeans2018/Trabalho_Integrador/src/view/Principal.java</file>
+            <file>file:/C:/Users/Marcos%20Oliveira/OneDrive/Netbeans2018/Trabalho_Integrador/src/model/Veiculo.java</file>
+            <file>file:/C:/Users/Marcos%20Oliveira/OneDrive/Netbeans2018/Trabalho_Integrador/src/model/ListaMotoristas.java</file>
+            <file>file:/C:/Users/Marcos%20Oliveira/OneDrive/Netbeans2018/Trabalho_Integrador/src/model/Carreta.java</file>
+            <file>file:/C:/Users/Marcos%20Oliveira/OneDrive/Netbeans2018/Trabalho_Integrador/src/model/Motorista.java</file>
+            <file>file:/C:/Users/Marcos%20Oliveira/OneDrive/Netbeans2018/Trabalho_Integrador/src/model/MotoristaB.java</file>
+            <file>file:/C:/Users/Marcos%20Oliveira/OneDrive/Netbeans2018/Trabalho_Integrador/src/dao/ArquivoMotorista.java</file>
+            <file>file:/C:/Users/Marcos%20Oliveira/OneDrive/Netbeans2018/Trabalho_Integrador/src/view/VeiculoMenu.java</file>
+            <file>file:/C:/Users/Marcos%20Oliveira/OneDrive/Netbeans2018/Trabalho_Integrador/src/control/MotoristaControl.java</file>
+            <file>file:/C:/Users/Marcos%20Oliveira/OneDrive/Netbeans2018/Trabalho_Integrador/src/model/Bau.java</file>
+            <file>file:/C:/Users/Marcos%20Oliveira/OneDrive/Netbeans2018/Trabalho_Integrador/src/control/VeiculoControl.java</file>
+        </group>
     </open-files>
 </project-private>

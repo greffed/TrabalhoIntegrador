@@ -4,7 +4,6 @@ import static control.VeiculoControl.*;
 import static dao.Arquivos.verificaArquivo;
 import java.io.*;
 import model.ListaVeiculos;
-import model.Veiculo;
 
 public class ArquivoVeiculo {
 
@@ -23,7 +22,7 @@ public class ArquivoVeiculo {
             if (veiculos.getSize() <= 0) {
                 System.out.println("Arquivo de veiculos Vazio!");
             } else {
-                popularListaVeiculos(veiculos);
+                setListaVeiculos(veiculos);
                 System.out.println("Arquivo de veiculos Carregado!");
             }
 
@@ -47,7 +46,7 @@ public class ArquivoVeiculo {
         }
     }
 
-    public static void salvarVeiculo(ListaVeiculos listaveiculos) {
+    public static void salvarVeiculo() {
         verificaArquivo(arquivo);
         OutputStream escritorByte = null;
         ObjectOutputStream escritorObjeto = null;
@@ -55,7 +54,7 @@ public class ArquivoVeiculo {
             escritorByte = new FileOutputStream(arquivo);
             escritorObjeto = new ObjectOutputStream(escritorByte);
             // salva o objeto
-            escritorObjeto.writeObject(listaveiculos);
+            escritorObjeto.writeObject(getListaVeiculos());
             escritorObjeto.flush();
             //System.out.println(listaveiculos);
             System.out.println("Arquivo de veiculos Atualizado!");

@@ -22,8 +22,12 @@ public class VeiculoControl {
         listaveiculos = new ListaVeiculos();;
     }
 
-    public static ListaVeiculos getListaVeiculo() {
+    public static ListaVeiculos getListaVeiculos() {
         return listaveiculos;
+    }
+ 
+    public static void setListaVeiculos(ListaVeiculos listanova) {
+        listaveiculos = listanova;
     }
 
     public static void coletaDados() {
@@ -106,8 +110,5 @@ public class VeiculoControl {
         return null;
     }
 
-    public static void popularListaVeiculos(ListaVeiculos listanova) {
-        listaveiculos = listanova;
-    }
 
 }

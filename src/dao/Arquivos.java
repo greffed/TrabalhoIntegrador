@@ -18,8 +18,8 @@ import java.io.File;
  */
 public class Arquivos {
     public static void salvarDadosTXT() {
-        salvarMotorista(getListaMotorista());
-        salvarVeiculo(getListaVeiculo());
+        salvarMotorista();
+        salvarVeiculo();
     }
 
     public static void carregarDadosTXT() {
@@ -28,9 +28,7 @@ public class Arquivos {
     }
     public static void verificaArquivo(String arquivo){
         File file = new File(arquivo);
-        if (file.exists()){
-            System.out.println("ARQUIVO: "+arquivo+" EXISTE");
-        } else {
+        if (!(file.exists())){
             try{
                 file.createNewFile();
             }catch(Exception e){

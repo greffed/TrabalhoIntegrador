@@ -1,6 +1,6 @@
 package dao;
 
-import static control.MotoristaControl.popularListaMotoristas;
+import static control.MotoristaControl.*;
 import static dao.Arquivos.verificaArquivo;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -14,7 +14,7 @@ import model.ListaMotoristas;
 
 public class ArquivoMotorista {
 
-    private static String arquivo = "conteudo/motoristas4.bin";
+    private static String arquivo = "conteudo/motoristas.bin";
     
     public static void carregarMotorista() {
         verificaArquivo(arquivo);
@@ -29,7 +29,7 @@ public class ArquivoMotorista {
             if (motoristas.getSize() <= 0) {
                 System.out.println("Arquivo de motoristas Vazio!");
             } else {
-                popularListaMotoristas(motoristas);
+                setListaMotoristas(motoristas);
                 System.out.println("Arquivo de motoristas Carregado!");
             }
 
@@ -53,7 +53,7 @@ public class ArquivoMotorista {
         }
     }
 
-    public static void salvarMotorista(ListaMotoristas listamotoristas) {
+    public static void salvarMotorista() {
         verificaArquivo(arquivo);
         OutputStream escritorByte = null;
         ObjectOutputStream escritorObjeto = null;
@@ -61,7 +61,7 @@ public class ArquivoMotorista {
             escritorByte = new FileOutputStream(arquivo);
             escritorObjeto = new ObjectOutputStream(escritorByte);
             // salva o objeto
-            escritorObjeto.writeObject(listamotoristas);
+            escritorObjeto.writeObject(getListaMotorista());
             escritorObjeto.flush();
             //System.out.println(listamotoristas);
             System.out.println("Arquivo de motoristas Atualizado!");
